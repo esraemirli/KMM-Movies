@@ -17,6 +17,7 @@ kotlin {
             }
         }
     }
+    android()
     iosX64()
     iosArm64()
     iosSimulatorArm64()
@@ -71,6 +72,24 @@ kotlin {
 
             }
         }
+        // val androidTest by getting not found
+
+        val iosX64Main by getting
+        val iosArm64Main by getting
+        val iosSimulatorArm64Main by getting
+        val iosMain by getting {
+
+            dependencies {
+                implementation(Ktor.clientIos)
+            }
+            dependsOn(commonMain)
+            iosX64Main.dependsOn(this)
+            iosArm64Main.dependsOn(this)
+            iosSimulatorArm64Main.dependsOn(this)
+        }
+        val iosX64Test by getting
+        val iosArm64Test by getting
+        val iosSimulatorArm64Test by getting
     }
 }
 
@@ -80,4 +99,6 @@ android {
     defaultConfig {
         minSdk = 24
     }
+}
+dependencies {
 }

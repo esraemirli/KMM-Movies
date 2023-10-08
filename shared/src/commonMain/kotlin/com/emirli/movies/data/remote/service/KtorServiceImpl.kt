@@ -4,7 +4,7 @@ import com.emirli.movies.data.remote.model.MovieListResponse
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
-import io.ktor.client.request.header
+import io.ktor.client.request.parameter
 
 class KtorServiceImpl(
     private val httpClient: HttpClient
@@ -16,6 +16,6 @@ class KtorServiceImpl(
     override suspend fun getMovies(): MovieListResponse = httpClient.get(
         "$baseUrl/discover/movie"
     ) {
-        header("api_key", apiKey)
+        parameter("api_key",apiKey)
     }.body()
 }

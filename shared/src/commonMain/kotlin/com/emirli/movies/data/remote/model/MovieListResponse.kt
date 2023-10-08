@@ -1,7 +1,9 @@
 package com.emirli.movies.data.remote.model
 
 import com.emirli.movies.domain.model.MovieUiModel
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class MovieListResponse(
     val page: Int,
     val results: List<Movie>,

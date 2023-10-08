@@ -1,15 +1,7 @@
 object Accompanist {
     private const val version = "0.26.2-beta"
     const val coil = "io.coil-kt:coil-compose:2.1.0"
-    private const val systemUIControllerVersion = "0.24.3-alpha"
-    const val systemUIController =
-        "com.google.accompanist:accompanist-systemuicontroller:$systemUIControllerVersion"
-    private const val accompanistPagerVersion = "0.24.3-alpha"
-    const val pager = "com.google.accompanist:accompanist-pager:$accompanistPagerVersion"
-    const val pagerIndicator =
-        "com.google.accompanist:accompanist-pager-indicators:$accompanistPagerVersion"
     const val webview = "com.google.accompanist:accompanist-webview:$version"
-
 }
 
 object Compose {
@@ -88,11 +80,4 @@ object Material3 {
 object Moko {
     private var mokoMvvmVersion = "0.13.1"
     val mokoMVVMCore = "dev.icerock.moko:mvvm-core:$mokoMvvmVersion"
-}
-
-object Realm {
-    const val pluginId = "io.realm.kotlin"
-    private const val version = "1.0.1"
-    const val realm = "io.realm.kotlin:library-base:$version"
-    const val plugin = "io.realm.kotlin:gradle-plugin:$version"
 }

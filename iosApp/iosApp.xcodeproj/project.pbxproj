@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,9 @@
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
+		E8C29C102AD300DD00D9F5B6 /* HomeObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C29C0F2AD300DD00D9F5B6 /* HomeObservableObject.swift */; };
+		E8C29C122AD300E900D9F5B6 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C29C112AD300E900D9F5B6 /* Home.swift */; };
+		E8C29C162AD3014400D9F5B6 /* FlowPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C29C152AD3014400D9F5B6 /* FlowPublisher.swift */; };
 		FFA7479E0FBB4A91CEDD33E5 /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF9FF3FC47B6428627F3D08A /* Pods_iosApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +27,9 @@
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A64EB21B861C80CAF2F1C4FA /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
 		DF9FF3FC47B6428627F3D08A /* Pods_iosApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iosApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8C29C0F2AD300DD00D9F5B6 /* HomeObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeObservableObject.swift; sourceTree = "<group>"; };
+		E8C29C112AD300E900D9F5B6 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		E8C29C152AD3014400D9F5B6 /* FlowPublisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowPublisher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +66,6 @@
 				A64EB21B861C80CAF2F1C4FA /* Pods-iosApp.debug.xcconfig */,
 				638C745A36239F450B893590 /* Pods-iosApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -85,6 +90,8 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				E8C29C0D2AD3009E00D9F5B6 /* Presentation */,
+				E8C29C132AD3010400D9F5B6 /* Domain */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
 				7555FF82242A565900829871 /* ContentView.swift */,
 				7555FF8C242A565B00829871 /* Info.plist */,
@@ -92,6 +99,39 @@
 				058557D7273AAEEB004C7B11 /* Preview Content */,
 			);
 			path = iosApp;
+			sourceTree = "<group>";
+		};
+		E8C29C0D2AD3009E00D9F5B6 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				E8C29C0E2AD300A500D9F5B6 /* Home */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		E8C29C0E2AD300A500D9F5B6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E8C29C0F2AD300DD00D9F5B6 /* HomeObservableObject.swift */,
+				E8C29C112AD300E900D9F5B6 /* Home.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E8C29C132AD3010400D9F5B6 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				E8C29C142AD3013000D9F5B6 /* Util */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		E8C29C142AD3013000D9F5B6 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				E8C29C152AD3014400D9F5B6 /* FlowPublisher.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,8 +162,9 @@
 		7555FF73242A565900829871 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1430;
 				ORGANIZATIONNAME = orgName;
 				TargetAttributes = {
 					7555FF7A242A565900829871 = {
@@ -208,8 +249,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8C29C102AD300DD00D9F5B6 /* HomeObservableObject.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				E8C29C122AD300E900D9F5B6 /* Home.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
+				E8C29C162AD3014400D9F5B6 /* FlowPublisher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

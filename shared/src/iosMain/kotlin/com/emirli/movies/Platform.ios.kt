@@ -1,30 +1,27 @@
 package com.emirli.movies
 
+import com.emirli.movies.presentation.home.HomeScreenViewModel
+import io.ktor.client.engine.darwin.Darwin
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.get
 import org.koin.dsl.module
-import platform.UIKit.UIDevice
 
 
 actual fun platformModule() = module {
+
     single {
-        //Darwin.create()
+        Darwin.create()
     }
 
     //single or factory can be used to get a view-model object for swiftui
 
     single {
-        //HomeScreenViewModel(get())
-    }
-    factory {
-       // NewsDetailsViewModel(get())
-    }
-    factory {
-       // ReadLaterViewModel(get())
+        HomeScreenViewModel(get())
     }
 }
 
 
-class IOSPlatform: Platform {
-    override val name: String = UIDevice.currentDevice.systemName() + " " + UIDevice.currentDevice.systemVersion
-}
+object ViewModels : KoinComponent {
+    fun getHomeViewModel() = get<HomeScreenViewModel>()
 
-actual fun getPlatform(): Platform = IOSPlatform()
+}
