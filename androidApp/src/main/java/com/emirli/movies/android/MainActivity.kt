@@ -7,8 +7,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.emirli.movies.Greeting
+import androidx.navigation.compose.rememberNavController
+import com.emirli.movies.android.home.HomeScreen
+import com.emirli.movies.android.util.navigation.NavGraph
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +20,12 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    GreetingView(Greeting().greet())
+                    val navController = rememberNavController()
+                    Surface {
+                        HomeScreen()
+                        //NavGraph(navController = navController)
+                    }
+                   // DestinationsNavHost(navGraph = NavGraphs.root)
                 }
             }
         }
@@ -29,12 +35,4 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingView(text: String) {
     Text(text = text)
-}
-
-@Preview
-@Composable
-fun DefaultPreview() {
-    MyApplicationTheme {
-        GreetingView("Hello, Android!")
-    }
 }

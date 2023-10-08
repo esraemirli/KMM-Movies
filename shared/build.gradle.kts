@@ -2,6 +2,8 @@ plugins {
     kotlin("multiplatform")
     kotlin("native.cocoapods")
     id("com.android.library")
+    kotlin(KotlinPlugins.serialization) version "1.7.10"
+    id(KotlinPlugins.parcelize)
 }
 
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
@@ -34,11 +36,39 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 //put your multiplatform dependencies here
+                with(Ktor) {
+                    implementation(clientCore)
+                    implementation(clientJson)
+                    implementation(clientLogging)
+                    implementation(clientSerialization)
+                    implementation(contentNegotiation)
+                    implementation(json)
+                }
+                with(Koin) {
+                    implementation(koin)
+                }
+                with(Kotlinx) {
+                    implementation(serializationCore)
+                    implementation(datetime)
+                }
+                with(Coroutines) {
+                    implementation(coroutines)
+                }
+                with(Moko) {
+                    api(mokoMVVMCore)
+                }
             }
         }
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
+            }
+        }
+        val androidMain by getting {
+            dependencies {
+                implementation(Ktor.clientAndroid)
+                implementation(Koin.koinAndroid)
+
             }
         }
     }

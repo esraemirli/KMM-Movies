@@ -1,5 +1,3 @@
-
-
 object Accompanist {
     private const val version = "0.26.2-beta"
     const val coil = "io.coil-kt:coil-compose:2.1.0"
@@ -8,8 +6,9 @@ object Accompanist {
         "com.google.accompanist:accompanist-systemuicontroller:$systemUIControllerVersion"
     private const val accompanistPagerVersion = "0.24.3-alpha"
     const val pager = "com.google.accompanist:accompanist-pager:$accompanistPagerVersion"
-    const val pagerIndicator = "com.google.accompanist:accompanist-pager-indicators:$accompanistPagerVersion"
-    const val webview =  "com.google.accompanist:accompanist-webview:$version"
+    const val pagerIndicator =
+        "com.google.accompanist:accompanist-pager-indicators:$accompanistPagerVersion"
+    const val webview = "com.google.accompanist:accompanist-webview:$version"
 
 }
 
@@ -17,6 +16,7 @@ object Compose {
 
     const val compose_version = "1.3.1"
     const val compose_ui_version = "1.3.0-beta02"
+    const val compose_navigation_version = "2.5.3"
     const val composeUI = "androidx.compose.ui:ui:$compose_ui_version"
     const val composeMaterial = "androidx.compose.material:material:$compose_ui_version"
 
@@ -25,7 +25,7 @@ object Compose {
     //const val composeToolingRelease
     const val composeActivity = "androidx.activity:activity-compose:1.4.0"
     const val util = "androidx.compose.ui:ui-util:$compose_ui_version"
-
+    const val navigation = "androidx.navigation.compose.composable:$compose_navigation_version"
 }
 
 object ComposeDestination {
@@ -85,7 +85,14 @@ object Material3 {
     val window = "androidx.compose.material3:material3-window-size-class:$version"
 }
 
-object SplashScreen {
-    private const val version = "1.0.0-beta02"
-    const val splashScreen = "androidx.core:core-splashscreen:$version"
+object Moko {
+    private var mokoMvvmVersion = "0.13.1"
+    val mokoMVVMCore = "dev.icerock.moko:mvvm-core:$mokoMvvmVersion"
+}
+
+object Realm {
+    const val pluginId = "io.realm.kotlin"
+    private const val version = "1.0.1"
+    const val realm = "io.realm.kotlin:library-base:$version"
+    const val plugin = "io.realm.kotlin:gradle-plugin:$version"
 }

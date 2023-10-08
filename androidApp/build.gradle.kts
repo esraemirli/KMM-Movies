@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     kotlin("android")
+    id("com.google.devtools.ksp") version "1.7.10-1.0.6"
 }
 
 android {
@@ -40,10 +41,23 @@ android {
 
 dependencies {
     implementation(project(":shared"))
-    implementation("androidx.compose.ui:ui:1.4.3")
-    implementation("androidx.compose.ui:ui-tooling:1.4.3")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.4.3")
-    implementation("androidx.compose.foundation:foundation:1.4.3")
-    implementation("androidx.compose.material:material:1.4.3")
-    implementation("androidx.activity:activity-compose:1.7.1")
+
+    with(Compose) {
+        implementation(util)
+        implementation(composeMaterial)
+        implementation(composeToolingDebug)
+        implementation(composeUI)
+      //  implementation(navigation)
+    }
+    with(Accompanist) {
+        implementation(coil)
+        implementation(webview)
+    }
+    with(Koin){
+        implementation(koinAndroid)
+    }
+    with(ComposeDestination) {
+        implementation(composeDestination)
+      //  ksp(composeDestinationPlugin)
+    }
 }
